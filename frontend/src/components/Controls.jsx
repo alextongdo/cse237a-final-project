@@ -1,10 +1,10 @@
 import './Controls.css'
 
+WEBSOCKET_URL = import.meta.env.VITE_MOTOR_PI_URL
+
 export default function Controls() {
-
-    // const websocket = new WebSocket('ws://192.168.4.5:8000/motor');
-
-    const websocket = new WebSocket('ws://192.168.1.179:8000/motor');
+    
+    const websocket = new WebSocket(`ws://${WEBSOCKET_URL}/motor`);
 
     function controlMotorExtend() {
         websocket.send(JSON.stringify({"control": "extend"}))

@@ -5,6 +5,9 @@ import { Canvas, useLoader, useThree } from '@react-three/fiber'
 import { PLYLoader } from 'three/examples/jsm/loaders/PLYLoader'
 import './PLYViewer.css'
 
+DEPTH_ANYTHING_URL = import.meta.env.VITE_DEPTH_ANTYHING_URL
+CAMERA_URL = import.meta.env.VITE_CAMERA_PI_URL
+
 function PLYPointCloud({ url }) {
   const meshRef = useRef()
   const geometry = useLoader(PLYLoader, url)
@@ -45,7 +48,7 @@ export default function PLYViewer() {
     setIsLoading(true)
     setPlyURL(null)
     try {
-      const imageResponse = await fetch('http://localhost:7999/image')
+      const imageResponse = await fetch(`http://${CAMERA_URL}/image`)
       if (!imageResponse.ok) {
         throw new Error("Error fetching image for predction.")
       }
@@ -53,7 +56,7 @@ export default function PLYViewer() {
       const formData = new FormData();
       formData.append('image', imageBlob);
 
-      const plyResponse = await fetch('http://localhost:8000/depth-anything', {
+      const plyResponse = await fetch(`http://${DEPTH_ANYTHING_URL}/depth-anything`, {
         method: 'POST',
         body: formData
       })

@@ -1,6 +1,6 @@
 import './Controls.css'
 
-WEBSOCKET_URL = import.meta.env.VITE_MOTOR_PI_URL
+const WEBSOCKET_URL = import.meta.env.VITE_MOTOR_PI_URL
 
 export default function Controls() {
     

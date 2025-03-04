@@ -5,8 +5,8 @@ import { Canvas, useLoader, useThree } from '@react-three/fiber'
 import { PLYLoader } from 'three/examples/jsm/loaders/PLYLoader'
 import './PLYViewer.css'
 
-DEPTH_ANYTHING_URL = import.meta.env.VITE_DEPTH_ANTYHING_URL
-CAMERA_URL = import.meta.env.VITE_CAMERA_PI_URL
+const DEPTH_ANYTHING_URL = import.meta.env.VITE_DEPTH_ANTYHING_URL
+const CAMERA_URL = import.meta.env.VITE_CAMERA_PI_URL
 
 function PLYPointCloud({ url }) {
   const meshRef = useRef()

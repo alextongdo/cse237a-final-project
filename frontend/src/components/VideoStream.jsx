@@ -1,6 +1,6 @@
 import './VideoStream.css'
 
-CAMERA_URL = import.meta.env.VITE_CAMERA_PI_URL
+const CAMERA_URL = import.meta.env.VITE_CAMERA_PI_URL
 
 export default function VideoStream() {
     const camera_url = `http://${CAMERA_URL}/video`

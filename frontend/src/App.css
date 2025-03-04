@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.row > * {
+  flex: 1;
+  text-align: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}

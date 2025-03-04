@@ -1,0 +1,44 @@
+.black-bg {
+    background-color: black;
+}
+
+.round-border {
+    border-radius: 10px;
+}
+
+.glow {
+    box-shadow: 0 0 20px #595959;
+}
+
+.margin {
+    margin: 1.2rem;
+}
+
+.title {
+    font-weight: 700;
+    color: #bfbfbf;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.control-button {
+    font-weight: 700;
+    font-size: 24px;
+    padding: 15px 30px;
+    color: #bfbfbf;
+    background-color: #242424;
+    border: 1px solid #bfbfbf;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.control-button:hover {
+    background-color: black;
+}
+
+.control-button:active {
+    padding: 14px 28px;
+    margin: 10px 12px;
+}

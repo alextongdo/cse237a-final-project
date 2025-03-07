@@ -56,6 +56,7 @@ export default function PLYViewer() {
       const formData = new FormData();
       formData.append('image', imageBlob);
 
+      const predictStartTime = Date.now();
       const plyResponse = await fetch(`http://${DEPTH_ANYTHING_URL}/depth-anything`, {
         method: 'POST',
         body: formData
@@ -63,6 +64,8 @@ export default function PLYViewer() {
       if (!plyResponse.ok) {
         throw new Error("Error fetching point cloud after prediction")
       }
+      const predictEndTime = Date.now()
+      console.log(`Prediction took: ${predictEndTime-predictStartTime} ms`)
       const plyBlob = await plyResponse.blob();
       const plyUrl = window.URL.createObjectURL(plyBlob);
       console.log(plyUrl)

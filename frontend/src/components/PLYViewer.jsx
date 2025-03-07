@@ -8,6 +8,12 @@ import './PLYViewer.css'
 const DEPTH_ANYTHING_URL = import.meta.env.VITE_DEPTH_ANTYHING_URL
 const CAMERA_URL = import.meta.env.VITE_CAMERA_PI_URL
 
+// This file creates a component that makes a request to
+// the camera on the vine robot for image. This image is
+// sent to the Depth Anything V2 model and converted to a 
+// point cloud (PLY). This PLY is then rendered in the
+// component using Three.js
+
 function PLYPointCloud({ url }) {
   const meshRef = useRef()
   const geometry = useLoader(PLYLoader, url)
@@ -15,6 +21,7 @@ function PLYPointCloud({ url }) {
 
   geometry.computeBoundingSphere();
   const center = geometry.boundingSphere.center;
+  // Center the 3D model
   geometry.translate(-center.x, -center.y, -center.z)
   geometry.rotateX(Math.PI / 2);
 
@@ -33,6 +40,7 @@ function PLYPointCloud({ url }) {
   )
 }
 
+// Show axes on the 3D model
 function Axes() {
   const axesRef = useRef()
   return (
@@ -44,6 +52,7 @@ export default function PLYViewer() {
   const [plyURL, setPlyURL] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
 
+  // Hits the APIs for getting an image and converting it to a PLY
   const depthAnythingPredict = async () => {
     setIsLoading(true)
     setPlyURL(null)

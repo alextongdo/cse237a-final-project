@@ -2,6 +2,10 @@ import './Controls.css'
 
 const WEBSOCKET_URL = import.meta.env.VITE_MOTOR_PI_URL
 
+// This file creates a component that establishes a
+// websocket connection to send commands that control
+// if the motor extends, retracts, or stops.
+
 export default function Controls() {
     
     const websocket = new WebSocket(`ws://${WEBSOCKET_URL}/motor`);
